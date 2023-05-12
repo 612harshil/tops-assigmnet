@@ -1,0 +1,79 @@
+
+{% extends "header_footer1.html" %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="page-banner-area bg-1">
+<div class="container">
+<div class="page-banner-content">
+<h1>Register</h1>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li>OTP VERIFY</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div class="register-area ptb-70">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-xl-9 col-lg-10">
+<div class="row">
+<div class="col-lg-6">
+<div class="register-left-content">
+<div class="register-image">
+<img src="{% static 'assets/images/user-image/user-img-2.webp' %}" alt="image">
+</div>
+<div class="register-btns">
+<ul>
+<li>
+<a href="https://www.facebook.com/" target="_blank">Continue with Facebook</a>
+</li>
+<li>
+<a href="https://www.google.com/" target="_blank">Continue with Google</a>
+</li>
+<li>
+<a href="https://www.apple.com/" target="_blank">Continue with Apple</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="register-content">
+<p style="font-size: 24; color: red;">{{msg}}</p>    
+<form action="{% url 'otp' %}" method="POST">
+    {% csrf_token %}
+<div class="form-group">
+<label>OTP</label>
+<input type="text" class="form-control" name="otp">
+</div>
+<div class="form-group">
+<ul class="d-flex justify-content-between">
+<li>
+<div class="form-check">
+<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+<label class="form-check-label" for="flexCheckDefault">
+I agree to <a href="terms-condition.html">terms & policy</a>
+</label>
+</div>
+</li>
+<li><a href="about.html">Learn More</a></li>
+</ul>
+</div>
+<button type="submit" class="default-btn style5">VERIFY OTP</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}
